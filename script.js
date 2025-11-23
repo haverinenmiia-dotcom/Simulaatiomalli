@@ -241,51 +241,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Embedded CSV data (converted from "data uusi.csv")
 const embeddedData = [
-    ['Momentti', 'Indeksiryhmä', 'Huomio', 'Kuvaus', 'Lähtöarvo 2025'],
-    ['28.89.31', 'Hyvinvointialueiden hintaindeksi', '', 'Hyvinvointialueiden ja HUS-yhtymän sosiaali- ja terveydenhuollon sekä pelastustoimen rahoitus', '26 235 003 000'],
-    ['28.50.15', 'Työeläkeindeksi (TyEL)', '', 'Eläkkeet', '5 622 854 000'],
-    ['33.40.60', 'Kansaneläkeindeksi (KEL)', '', 'Valtion osuus kansaneläkelaisesta ja eräistä muista laeista johtuvista menoista', '4 065 100 000'],
-    ['28.90.30', 'Valtionosuusindeksi (VOS)', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionosuus kunnille peruspalvelujen järjestämiseen', '3 366 600 000'],
-    ['27.10.01', 'Kuluttajahintaindeksi (KHI)', '', 'Puolustusvoimien toimintamenot', '2 519 809 000'],
-    ['29.40.50', 'Yliopistoindeksi', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionrahoitus yliopistojen toimintaan', '2 269 102 000'],
-    ['33.30.60', 'Kansaneläkeindeksi (KEL)', 'Vain vähimmäispäivärahameno on indeksisidonnainen.', 'Valtion osuus sairausvakuutuslaista johtuvista menoista', '1 866 300 000'],
-    ['33.10.50', 'Kuluttajahintaindeksi (KHI)', 'Vain elatustuki on indeksisidonnainen.', 'Perhe-etuudet', '1 626 400 000'],
-    ['27.10.19', 'Toteutuneen kustannustason nousun mukaan', '', 'Monitoimihävittäjien hankinta', '1 852 774 000'],
-    ['27.10.18', 'Teollisuuden tuottahindeksi, alaindeksin C28 (Muiden koneiden ja laitteiden valmistus)', '', 'Puolustusmateriaalihankinnat', '1 517 054 000'],
-    ['33.20.52', 'Kansaneläkeindeksi (KEL)', '', 'Valtionosuus työttömyysetuuksien perusturvasta', '1 312 500 000'],
-    ['33.10.54', 'Kansaneläkeindeksi (KEL)', '', 'Asumistuki', '1 406 300 000'],
-    ['33.10.57', 'Kansaneläkeindeksi (KEL)', 'Vain perustoimeentulotuen perusosa on indeksisidonnainen', 'Perustoimeentulotuki', '970 200 000'],
-    ['29.40.55', 'Yliopistoindeksi', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionrahoitus ammattikorkeakoulujen toimintaan', '1 020 666 000'],
-    ['29.20.30', 'Ammatillisen koulutuksen indeksi', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionosuus ja -avustus ammatilliseen koulutukseen', '1 020 058 000'],
-    ['29.70.55', 'Kansaneläkeindeksi (KEL)', '', 'Opintoraha ja asumislisä', '699 300 000'],
-    ['33.40.51', 'Työeläkeindeksi (TyEL)*', '', 'Valtion osuus maatalousyrittäjän eläkelaisesta johtuvista menoista', '850 000 000'],
-    ['29.10.30', 'Valtionosuusindeksi (VOS)', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionosuus ja -avustus esi- ja perusopetuksen ja varhaiskasvatuksen käyttökustannuksiin', '625 697 000'],
-    ['33.20.50', 'Kansaneläkeindeksi (KEL)', '', 'Valtionosuus työttömyysetuuksien ansioturvasta ja vuorottelukorvauksesta', '539 800 000'],
-    ['31.20.60', 'YLE-indeksi', '', 'Siirto valtion televisio- ja radiorahastoon', '609 681 000'],
-    ['33.40.52', 'Työeläkeindeksi (TyEL)*', '', 'Valtion osuus yrittäjän eläkelaisesta johtuvista menoista', '521 800 000'],
-    ['28.50.63', 'Työeläkeindeksi (TyEL)', '', 'Muiden eläkelaitosten vastattavaksi kuuluvat eläkemenot', '375 086 000'],
-    ['29.20.35', 'Valtionosuusindeksi (VOS)', '', 'Valtionosuus ja -avustus lukiokoulutuksen käyttökustannuksiin', '333 411 000'],
-    ['29.10.31', 'Valtionosuusindeksi (VOS)', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionosuus ja -avustus vapaan sivistystyön oppilaitosten käyttökustannuksiin', '185 445 000'],
-    ['29.80.31', 'Valtionosuusindeksi (VOS)', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionosuus ja -avustus esittävän taiteen ja museoiden käyttökustannuksiin', '147 118 000'],
-    ['29.80.34', 'Valtionosuusindeksi (VOS)', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionosuus ja -avustus taiteen perusopetuksen käyttökustannuksiin', '99 609 000'],
-    ['29.01.52', 'Kuluttajahintaindeksi (KHI)', '', 'Valtion rahoitus evankelis-luterilaisen kirkon yhteiskunnallisiin tehtäviin', '105 030 000'],
-    ['29.80.56', 'ATI 2/3 ja KHI 1/3 painolla', '', 'Valtionrahoitus kansallisten taidelaitosten toimintaan', '66 764 000'],
-    ['33.40.50', 'Työeläkeindeksi (TyEL)', '', 'Valtion osuus merimieseläkekassan menoista', '68 000 000'],
-    ['27.30.20', 'Kuluttajahintaindeksi (KHI)', '', 'Sotilaallisen kriisinhallinnan kalusto- ja hallintomenot', '64 920 000'],
-    ['29.90.52 (29.90.30)', 'Valtionosuusindeksi (VOS)', '', 'Valtionosuudet kunnille ja liikunnan koulutuskeskuksille', '36 631 000'],
-    ['33.50.52', 'Työeläkeindeksi (TyEL)*', '', 'Sotilasvammakorvaukset', '42 000 000'],
-    ['33.40.53', 'Työeläkeindeksi (TyEL)', '', 'Valtion korvaus lapsen hoidon ja opiskelun ajalta kertyvästä eläkeestä', '27 600 000'],
-    ['33.10.53', 'Kansaneläkeindeksi (KEL)', '', 'Sotilasavustus', '23 000 000'],
-    ['29.80.16', 'Työeläkeindeksi (TyEL)', '', 'Ylimääräiset taiteilija- ja sanomalehtimieseläkkeet', '22 932 000'],
-    ['28.50.95', 'Työeläkeindeksi (TyEL)', '', 'Muiden eläkelaitosten valtion puolesta maksamien eläkemenojen ja valtiolle maksamien ennakoiden korkomenot', '34 961 000'],
-    ['26.40.63', 'Kansaneläkeindeksi (KEL)', '', 'Vastaanottotoiminnan asiakkaille maksettavat tuet', '45 890 000'],
-    ['33.40.54', 'Työeläkeindeksi (TyEL)', '', 'Valtion osuus maatalousyrittäjien tapaturmavakuutuksen kustannuksista', '14 000 000'],
-    ['30.10.42', 'TyEL/KEL', '', 'Luopumistuet ja -eläkkeet', '13 200 000'],
-    ['29.80.30', 'Valtionosuusindeksi (VOS)', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Valtionavustukset yleisten kirjastojen toimintaan', '9 228 000'],
-    ['29.01.51', 'Kuluttajahintaindeksi (KHI)', 'Osa momentin määrärahasta ei ole indeksisidonnainen', 'Avustukset kirkolliseen ja uskonnolliseen toimintaan', '3 152 000'],
-    ['28.50.16', 'Työeläkeindeksi (TyEL)', '', 'Ylimääräiset eläkkeet ja muut eläkemenot', '2 797 000'],
-    ['33.50.50', 'Kansaneläkeindeksi (KEL)', '', 'Rintamalisät', '3 500 000'],
-    ['33.20.55', 'Kansaneläkeindeksi (KEL)', '', 'Valtionosuudet Työllisyysrahastolle', '1 595 000']
+    ['Momentti', 'Indeksiryhmä', 'Kuvaus', 'Lähtöarvo 2025'],
+    ['28.89.31', 'Hyvinvointialueiden hintaindeksi', 'Hyvinvointialueiden ja HUS-yhtymän sosiaali- ja terveydenhuollon sekä pelastustoimen rahoitus', '26 235 003 000'],
+    ['28.50.15', 'Työeläkeindeksi (TyEL)', 'Eläkkeet', '5 622 854 000'],
+    ['33.40.60', 'Kansaneläkeindeksi (KEL)', 'Valtion osuus kansaneläkelaisesta ja eräistä muista laeista johtuvista menoista', '4 065 100 000'],
+    ['28.90.30', 'Valtionosuusindeksi (VOS)', 'Valtionosuus kunnille peruspalvelujen järjestämiseen', '3 366 600 000'],
+    ['27.10.01', 'Kuluttajahintaindeksi (KHI)', 'Puolustusvoimien toimintamenot', '2 519 809 000'],
+    ['29.40.50', 'Yliopistoindeksi', 'Valtionrahoitus yliopistojen toimintaan', '2 269 102 000'],
+    ['33.30.60', 'Kansaneläkeindeksi (KEL)', 'Valtion osuus sairausvakuutuslaista johtuvista menoista', '1 866 300 000'],
+    ['33.10.50', 'Kuluttajahintaindeksi (KHI)', 'Perhe-etuudet', '1 626 400 000'],
+    ['27.10.19', 'Toteutuneen kustannustason nousun mukaan', 'Monitoimihävittäjien hankinta', '1 852 774 000'],
+    ['27.10.18', 'Teollisuuden tuottahindeksi, alaindeksin C28 (Muiden koneiden ja laitteiden valmistus)', 'Puolustusmateriaalihankinnat', '1 517 054 000'],
+    ['33.20.52', 'Kansaneläkeindeksi (KEL)', 'Valtionosuus työttömyysetuuksien perusturvasta', '1 312 500 000'],
+    ['33.10.54', 'Kansaneläkeindeksi (KEL)', 'Asumistuki', '1 406 300 000'],
+    ['33.10.57', 'Kansaneläkeindeksi (KEL)', 'Perustoimeentulotuki', '970 200 000'],
+    ['29.40.55', 'Yliopistoindeksi', 'Valtionrahoitus ammattikorkeakoulujen toimintaan', '1 020 666 000'],
+    ['29.20.30', 'Ammatillisen koulutuksen indeksi', 'Valtionosuus ja -avustus ammatilliseen koulutukseen', '1 020 058 000'],
+    ['29.70.55', 'Kansaneläkeindeksi (KEL)', 'Opintoraha ja asumislisä', '699 300 000'],
+    ['33.40.51', 'Työeläkeindeksi (TyEL)*', 'Valtion osuus maatalousyrittäjän eläkelaisesta johtuvista menoista', '850 000 000'],
+    ['29.10.30', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus esi- ja perusopetuksen ja varhaiskasvatuksen käyttökustannuksiin', '625 697 000'],
+    ['33.20.50', 'Kansaneläkeindeksi (KEL)', 'Valtionosuus työttömyysetuuksien ansioturvasta ja vuorottelukorvauksesta', '539 800 000'],
+    ['31.20.60', 'YLE-indeksi', 'Siirto valtion televisio- ja radiorahastoon', '609 681 000'],
+    ['33.40.52', 'Työeläkeindeksi (TyEL)*', 'Valtion osuus yrittäjän eläkelaisesta johtuvista menoista', '521 800 000'],
+    ['28.50.63', 'Työeläkeindeksi (TyEL)', 'Muiden eläkelaitosten vastattavaksi kuuluvat eläkemenot', '375 086 000'],
+    ['29.20.35', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus lukiokoulutuksen käyttökustannuksiin', '333 411 000'],
+    ['29.10.31', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus vapaan sivistystyön oppilaitosten käyttökustannuksiin', '185 445 000'],
+    ['29.80.31', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus esittävän taiteen ja museoiden käyttökustannuksiin', '147 118 000'],
+    ['29.80.34', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus taiteen perusopetuksen käyttökustannuksiin', '99 609 000'],
+    ['29.01.52', 'Kuluttajahintaindeksi (KHI)', 'Valtion rahoitus evankelis-luterilaisen kirkon yhteiskunnallisiin tehtäviin', '105 030 000'],
+    ['29.80.56', 'ATI 2/3 ja KHI 1/3 painolla', 'Valtionrahoitus kansallisten taidelaitosten toimintaan', '66 764 000'],
+    ['33.40.50', 'Työeläkeindeksi (TyEL)', 'Valtion osuus merimieseläkekassan menoista', '68 000 000'],
+    ['27.30.20', 'Kuluttajahintaindeksi (KHI)', 'Sotilaallisen kriisinhallinnan kalusto- ja hallintomenot', '64 920 000'],
+    ['29.90.52 (29.90.30)', 'Valtionosuusindeksi (VOS)', 'Valtionosuudet kunnille ja liikunnan koulutuskeskuksille', '36 631 000'],
+    ['33.50.52', 'Työeläkeindeksi (TyEL)*', 'Sotilasvammakorvaukset', '42 000 000'],
+    ['33.40.53', 'Työeläkeindeksi (TyEL)', 'Valtion korvaus lapsen hoidon ja opiskelun ajalta kertyvästä eläkeestä', '27 600 000'],
+    ['33.10.53', 'Kansaneläkeindeksi (KEL)', 'Sotilasavustus', '23 000 000'],
+    ['29.80.16', 'Työeläkeindeksi (TyEL)', 'Ylimääräiset taiteilija- ja sanomalehtimieseläkkeet', '22 932 000'],
+    ['28.50.95', 'Työeläkeindeksi (TyEL)', 'Muiden eläkelaitosten valtion puolesta maksamien eläkemenojen ja valtiolle maksamien ennakoiden korkomenot', '34 961 000'],
+    ['26.40.63', 'Kansaneläkeindeksi (KEL)', 'Vastaanottotoiminnan asiakkaille maksettavat tuet', '45 890 000'],
+    ['33.40.54', 'Työeläkeindeksi (TyEL)', 'Valtion osuus maatalousyrittäjien tapaturmavakuutuksen kustannuksista', '14 000 000'],
+    ['30.10.42', 'TyEL/KEL', 'Luopumistuet ja -eläkkeet', '13 200 000'],
+    ['29.80.30', 'Valtionosuusindeksi (VOS)', 'Valtionavustukset yleisten kirjastojen toimintaan', '9 228 000'],
+    ['29.01.51', 'Kuluttajahintaindeksi (KHI)', 'Avustukset kirkolliseen ja uskonnolliseen toimintaan', '3 152 000'],
+    ['28.50.16', 'Työeläkeindeksi (TyEL)', 'Ylimääräiset eläkkeet ja muut eläkemenot', '2 797 000'],
+    ['33.50.50', 'Kansaneläkeindeksi (KEL)', 'Rintamalisät', '3 500 000'],
+    ['33.20.55', 'Kansaneläkeindeksi (KEL)', 'Valtionosuudet Työllisyysrahastolle', '1 595 000']
 ];
 
 // Function to display embedded data as static HTML table
@@ -326,22 +326,31 @@ function displayDataTable() {
                 const cell = row[index] !== undefined ? row[index] : '';
                 const cellValue = cell !== null && cell !== undefined ? String(cell).trim() : '';
                 
-                // Check if cell is a number for right alignment
-                // Remove spaces and convert comma to dot for parsing
-                const cleanValue = cellValue.replace(/\s/g, '').replace(',', '.');
-                const numValue = parseFloat(cleanValue);
-                const isNumber = !isNaN(numValue) && cellValue !== '';
-                const cellClass = isNumber ? 'number' : '';
+                // Momentti column should always be treated as text (contains dots like "28.89.31")
+                const isMomenttiColumn = header === 'Momentti';
                 
-                // Format numbers with thousand separators
+                // Check if cell is a number for right alignment (but not Momentti column)
+                let isNumber = false;
                 let displayValue = cellValue;
-                if (isNumber) {
-                    displayValue = numValue.toLocaleString('fi-FI', { 
-                        minimumFractionDigits: 0, 
-                        maximumFractionDigits: 0 
-                    });
+                
+                if (!isMomenttiColumn && cellValue !== '') {
+                    // Remove spaces and convert comma to dot for parsing
+                    const cleanValue = cellValue.replace(/\s/g, '').replace(',', '.');
+                    const numValue = parseFloat(cleanValue);
+                    // Only treat as number if it's a valid number and doesn't contain multiple dots (like momentti codes)
+                    const hasMultipleDots = (cellValue.match(/\./g) || []).length > 1;
+                    isNumber = !isNaN(numValue) && !hasMultipleDots && cleanValue === numValue.toString();
+                    
+                    // Format numbers with thousand separators
+                    if (isNumber) {
+                        displayValue = numValue.toLocaleString('fi-FI', { 
+                            minimumFractionDigits: 0, 
+                            maximumFractionDigits: 0 
+                        });
+                    }
                 }
                 
+                const cellClass = isNumber ? 'number' : '';
                 tableHTML += `<td class="${cellClass}">${escapeHtml(displayValue)}</td>`;
             });
             tableHTML += '</tr>';
@@ -415,6 +424,20 @@ function toggleLimitations() {
 function toggleReferences() {
     const content = document.getElementById('references-content');
     const icon = document.getElementById('references-icon');
+    
+    if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+    } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+    }
+}
+
+// Accordion toggle function for index table
+function toggleIndexTable() {
+    const content = document.getElementById('index-table-content');
+    const icon = document.getElementById('index-table-icon');
     
     if (content.classList.contains('active')) {
         content.classList.remove('active');
