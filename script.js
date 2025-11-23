@@ -73,96 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             data: {
                 labels: years,
                 datasets: [
-                    // Uncertainty areas (10/90 quantiles) - filled areas around each line
-                    {
-                        label: 'Skenaario 1: 90% kvantiili',
-                        data: scenario1Upper,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario1 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: '+1',
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    {
-                        label: 'Skenaario 1: 10% kvantiili',
-                        data: scenario1Lower,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario1 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: false,
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    {
-                        label: 'Skenaario 2: 90% kvantiili',
-                        data: scenario2Upper,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario2 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: '+1',
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    {
-                        label: 'Skenaario 2: 10% kvantiili',
-                        data: scenario2Lower,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario2 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: false,
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    {
-                        label: 'Skenaario 3: 90% kvantiili',
-                        data: scenario3Upper,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario3 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: '+1',
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    {
-                        label: 'Skenaario 3: 10% kvantiili',
-                        data: scenario3Lower,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario3 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: false,
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    {
-                        label: 'Skenaario 4: 90% kvantiili',
-                        data: scenario4Upper,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario4 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: '+1',
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    {
-                        label: 'Skenaario 4: 10% kvantiili',
-                        data: scenario4Lower,
-                        borderColor: 'transparent',
-                        backgroundColor: colors.scenario4 + '20',
-                        borderWidth: 0,
-                        tension: 0.4,
-                        fill: false,
-                        pointRadius: 0,
-                        order: 0
-                    },
-                    // Main lines (drawn on top of uncertainty bands)
+                    // Main lines
                     {
                         label: 'Skenaario 1: Perusvaihtoehto',
                         data: scenario1Data,
@@ -215,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 aspectRatio: 2,
                 plugins: {
                     title: {
@@ -230,10 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             font: {
                                 size: 12
                             },
-                            filter: function(item) {
-                                // Hide uncertainty area datasets from legend
-                                return !item.text.includes('kvantiili');
-                            }
                         }
                     },
                     tooltip: {
