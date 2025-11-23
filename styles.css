@@ -329,6 +329,15 @@ section {
     border-radius: 8px;
     box-shadow: var(--shadow-md);
     margin: 3rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 300px;
+    height: 400px;
 }
 
 .chart-title {
@@ -700,17 +709,33 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
     .nav-links {
-        gap: 1rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nav-links a {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        padding: 0.35rem 0.7rem;
     }
 
     .hero {
-        padding: 120px 24px 80px;
+        padding: 100px 16px 60px;
+        min-height: 60vh;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
     }
 
     .purpose-section {
@@ -718,86 +743,215 @@ section {
     }
 
     .purpose-box {
-        padding: 2rem;
-    }
-
-    .purpose-box h2 {
-        font-size: 1.5rem;
-    }
-
-    .purpose-box p {
-        font-size: 1rem;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .scenarios-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .chart-container {
         padding: 1.5rem;
-    }
-
-    .table-container {
-        padding: 1.5rem;
-    }
-
-    .results-table {
-        font-size: 0.85rem;
-    }
-
-    .results-table th,
-    .results-table td {
-        padding: 0.75rem 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-links {
-        gap: 0.5rem;
-    }
-
-    .nav-links a {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.6rem;
-    }
-
-    .hero {
-        padding: 100px 24px 60px;
-    }
-
-    .purpose-box {
-        padding: 1.5rem;
+        margin: 0 16px;
     }
 
     .purpose-box h2 {
         font-size: 1.3rem;
     }
 
-    section {
-        padding: 60px 0;
+    .purpose-box p {
+        font-size: 0.95rem;
     }
 
-    .hero-title {
-        font-size: 1.75rem;
+    section {
+        padding: 40px 0;
     }
 
     .section-title {
         font-size: 1.75rem;
+        margin-bottom: 1.5rem;
     }
 
     .content-text {
         font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .scenarios-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .chart-container {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .chart-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .chart-wrapper {
+        height: 300px !important;
+        min-height: 300px;
+    }
+
+    .chart-note {
+        font-size: 0.85rem;
+        margin-top: 1rem;
+    }
+
+    .table-container {
+        padding: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-container-compact {
+        padding: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table {
+        font-size: 0.75rem;
+        min-width: 600px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.5rem 0.4rem;
+    }
+
+    .results-table {
+        font-size: 0.85rem;
+        min-width: 500px;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .methodology-accordion .accordion-button {
+        padding: 1rem 1.25rem;
+    }
+
+    .methodology-accordion .accordion-button h3 {
+        font-size: 1.2rem;
+    }
+
+    .methodology-box {
+        padding: 1.5rem;
+    }
+
+    .key-findings {
+        padding: 1.5rem;
+    }
+
+    .key-findings h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .nav-links {
+        gap: 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .hero {
+        padding: 80px 12px 40px;
+        min-height: 50vh;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .purpose-box {
+        padding: 1.25rem;
+        margin: 0 12px;
+    }
+
+    .purpose-box h2 {
+        font-size: 1.15rem;
+    }
+
+    .purpose-box p {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 30px 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .content-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .chart-container {
+        padding: 0.75rem;
+    }
+
+    .chart-wrapper {
+        height: 250px !important;
+        min-height: 250px;
+    }
+
+    .chart-title {
+        font-size: 1rem;
+    }
+
+    .data-table {
+        font-size: 0.7rem;
+        min-width: 550px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.4rem 0.3rem;
+    }
+
+    .results-table {
+        font-size: 0.8rem;
+        min-width: 450px;
+    }
+
+    .methodology-accordion .accordion-button {
+        padding: 0.875rem 1rem;
+    }
+
+    .methodology-accordion .accordion-button h3 {
+        font-size: 1.1rem;
+    }
+
+    .methodology-box {
+        padding: 1.25rem;
+    }
+
+    .key-findings {
+        padding: 1.25rem;
+    }
+
+    .key-findings h3 {
+        font-size: 1.2rem;
     }
 }

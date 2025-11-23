@@ -233,7 +233,9 @@
                 <!-- Menojen kehitys -->
                 <div class="chart-container">
                     <h3 class="chart-title">Kuva 1. Indeksisidonnaisten menojen kehitys 2025-2035</h3>
-                    <canvas id="expenditureChart"></canvas>
+                    <div class="chart-wrapper">
+                        <canvas id="expenditureChart"></canvas>
+                    </div>
                     <p class="chart-note">
                         Kuvassa esitetään indeksisidonnaisten valtion menojen kehitys neljässä eri skenaariossa (keskiarvo simulaatioista). 
                         Keskeiset tulokset on koottu numeerisesti (keskiarvo ja 10/90 kvantiilit) alkuperäisessä artikkelissa.
@@ -311,12 +313,12 @@
             </div>
         </section>
 
-        <!-- Yhteenveto indeksisidonnaisista menoista -->
+        <!-- Taulukko indeksisidonnaisista menoista -->
         <section class="summary-table-section">
             <div class="container">
                 <div class="accordion-container">
                     <button class="accordion-button" onclick="toggleAccordion()">
-                        <h2 class="accordion-title">Yhteenveto indeksisidonnaisista valtion menoista vuonna 2025</h2>
+                        <h2 class="accordion-title">Taulukko indeksisidonnaisista valtion menoista vuonna 2025</h2>
                         <span class="accordion-icon" id="accordion-icon">▼</span>
                     </button>
                     <div class="accordion-content" id="accordion-content">
