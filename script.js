@@ -23,16 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (expenditureCtx) {
         // Simulated data based on the table values
         // Helper function to calculate uncertainty bands (10/90 quantiles)
-        // Uncertainty increases over time: starts at ±0.4% (2025) and grows to ±2% (2035)
+        // Uncertainty increases over time: starts at ±0.1% (2025) and grows to ±1.9% (2035)
         function calculateUncertaintyBands(data) {
             const upper = [];
             const lower = [];
             const numPoints = data.length;
             
             data.forEach((value, index) => {
-                // Uncertainty grows linearly from 0.4% at start to 2% at end
+                // Uncertainty grows linearly from 0.1% at start to 1.9% at end
+                // Based on: 2025 ~62.24 (very narrow, almost no difference) and 2035 ~72.37-75.24 (wider)
                 const progress = index / (numPoints - 1); // 0 to 1
-                const uncertaintyPercent = 0.004 + (progress * 0.016); // 0.4% to 2%
+                const uncertaintyPercent = 0.001 + (progress * 0.018); // 0.1% to 1.9%
                 
                 // 10/90 quantiles: approximately ±1.28 standard deviations
                 // Using multiplier to approximate 10th and 90th percentiles
@@ -83,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: '+1',
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     {
@@ -94,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: false,
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     {
@@ -105,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: '+1',
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     {
@@ -116,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: false,
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     {
@@ -127,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: '+1',
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     {
@@ -138,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: false,
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     {
@@ -149,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: '+1',
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     {
@@ -160,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tension: 0.4,
                         fill: false,
                         pointRadius: 0,
+                        pointHoverRadius: 0,
                         order: 0
                     },
                     // Main lines (drawn on top of uncertainty bands)
@@ -240,7 +249,18 @@ document.addEventListener('DOMContentLoaded', function() {
                         mode: 'index',
                         intersect: false,
                         callbacks: {
+                            filterTooltipItems: function(tooltipItems) {
+                                // Hide uncertainty area datasets (kvantiilit) from tooltip
+                                return tooltipItems.filter(function(item) {
+                                    const label = item.dataset.label || '';
+                                    return !label.includes('kvantiili');
+                                });
+                            },
                             label: function(context) {
+                                // Double check - don't show kvantiilit
+                                if (context.dataset.label && context.dataset.label.includes('kvantiili')) {
+                                    return null;
+                                }
                                 return context.dataset.label + ': ' + context.parsed.y.toFixed(2) + ' mrd. €';
                             }
                         }
