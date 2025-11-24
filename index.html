@@ -34,13 +34,13 @@
                     <h2>Sivuston tarkoitus</h2>
                     <p>
                         Tämä sivusto perustuu julkaistuun artikkeliin <em>"Stochastic Simulation Model for Forecasting Index-Linked Public Expenditure"</em> 
-                        (Rissanen, Savolainen & Collan, 2025) sekä sen pohjalta laadittavaan yleistajuiseen esitykseen valtion indeksisidonnaisista menoista.
+                        (Rissanen, Savolainen & Collan, 2025) <a href="http://doi.org/10.1111/pbaf.70007" target="_blank" class="link">http://doi.org/10.1111/pbaf.70007</a> sekä sen pohjalta laadittavaan yleistajuiseen esitykseen valtion indeksisidonnaisista menoista.
                     </p>
                     <p>
                  
                         Tämän sivuston sisältö on tarkoituksella yhteenvetävä ja tiivis. 
                         Tavoitteenamme on avata indeksisidonnaisten menojen mekaniikkaa selkeällä ja 
-                        ymmärrettävällä tavalla. Kehitetyn simulaatiomallin tarkemmat menetelmäkuvaukset ja tekniset yksityiskohdat löytyvät <a href="#" class="link">alkuperäisestä artikkelista</a>. 
+                        ymmärrettävällä tavalla. Kehitetyn simulaatiomallin tarkemmat menetelmäkuvaukset ja tekniset yksityiskohdat löytyvät <a href="http://doi.org/10.1111/pbaf.70007" target="_blank" class="link">alkuperäisestä artikkelista</a>. 
                         Tämän sivuston lukija voi tutustua Suomen indeksisidottujen menojen 
                         perusasioihin myös Valtionvarainministeriön Meno- ja rakennekartoituksessa (2023) aiheeseen liittyvässä osiossa. 
                     </p>
@@ -216,8 +216,8 @@
                         vaikutuksia menojen kehitykseen
                         olisi, mikäli indeksisidonnaisuuksia muutettaisiin. Toisaalta se auttaa myös hahmottamaan nykyisten indeksointijäädytysten vaikutuksia ja arvioimaan
                         saavutetaanko niillä tavoiteltuja muutoksia valtion menojen kasvun hillitsemiseksi.
-                    </p>
-                </div>
+                        </p>
+                    </div>
             </div>
         </section>
 
@@ -243,8 +243,8 @@
                         Keskeistä on epävarmuuden huomioiminen: malli ei perustu yhteen inflaatio-oletukseen, vaan tuottaa joukon 
                         vaihtoehtoisia tulevaisuuksia. Näin se auttaa hahmottamaan menojen mahdollisen vaihteluvälin ja siihen 
                         liittyvät riskit. 
-                    </p>
-                </div>
+                        </p>
+                    </div>
 
                 <div class="methodology-accordion">
                     <button class="accordion-button" onclick="toggleMethodology()">
@@ -268,7 +268,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                    </div>
 
                 <div class="methodology-accordion">
                     <button class="accordion-button" onclick="toggleLimitations()">
@@ -278,7 +278,7 @@
                     <div class="accordion-content" id="limitations-content">
                         <div class="methodology-box">
                             <p>
-                                Malli ei sisällä palautemekanismeja fiskaalisten muuttujien ja laajemman talouden välillä, eikä se 
+                                Malli ei sisällä palautemekanismeja fiskaalisten muuttujien ja laajemman talouden välillä, eikä se näin ollen
                                 huomioi inflaation mahdollisia vaikutuksia reaalitalouden toimintaan. Tämän vuoksi mallin tuottamat 
                                 ennusteet on nähtävä havainnollistavina arvioina, jotka perustuvat tiettyihin oletuksiin ja rajaavat 
                                 analyysin ulkopuolelle monimutkaisempia taloudellisia vuorovaikutuksia.
@@ -302,12 +302,23 @@
                 <div class="content-text">
                     <p>
                         Alla esitetään esimerkki mallin käytöstä. Simulaatiot on ajettu neljällä eri skenaariolla, 
-                        jotka testaavat erilaisia indeksointipolitiikkoja. Jokainen skenaario käyttää samaa lähtötilannetta 
-                        (vuoden 2025 budjetti) ja samaa inflaatiomallinnusta, mikä mahdollistaa skenaarioiden vertailun.
+                        jotka testaavat erilaisia indeksointivaihtoehtoja. Jokainen skenaario käyttää samaa lähtötilannetta 
+                        (vuoden 2025 budjetti) ja samaa inflaatiomallinnusta, mikä mahdollistaa skenaarioiden vertailun. Mallilla ajetaan
+                        sarja simulaatioita kymmenen vuotta eteenpäin, joiden perusteella voidaan laskea keskiarvot ja kvantiilit tuloksista. 
+                    
                     </p>
                     <p>
                         Skenaariot kattavat vaihtoehdot nykyisten indeksijäädytysten eri kestosta sekä sääntöpohjaisten 
                         indeksileikkausten vaikutuksista. 
+                    </p>
+                </div>
+
+                <div class="content-text">
+                    <p class="important-note">
+                        <strong>Huomio:</strong> Nämä tulokset kuvaavat ainoastaan automaattisia indeksisidonnaisia 
+                        budjettikorotuksia eivätkä sisällä harkinnanvaraisia menolisäyksiä. Toisin sanoen, mikäli 
+                        budjettiin tulisi harkinnanvaraisia lisäyksiä, simulaatiossa mukana olevien menojen kehitys 
+                        olisi suurempaa ja päinvastoin, mikäli menoja leikattaisiin. Luvut sisältävät vain indeksisidonnaiset valtion menot, ei koko julkisen talouden budjettia.
                     </p>
                 </div>
 
@@ -375,15 +386,6 @@
                         miten erilaiset indeksijarrut voivat muuttaa tätä kehitystä. 
                     </p>
                 </div>
-
-                <div class="content-text">
-                    <p class="important-note">
-                        <strong>Huomio:</strong> Nämä tulokset kuvaavat ainoastaan automaattisia indeksisidonnaisia 
-                        budjettikorotuksia eivätkä sisällä harkinnanvaraisia menolisäyksiä. Toisin sanoen, mikäli 
-                        budjettiin tulisi harkinnanvaraisia lisäyksiä, simulaatiossa mukana olevien menojen kehitys 
-                        olisi suurempaa ja päinvastoin, mikäli menoja leikattaisiin.
-                    </p>
-                </div>
             </div>
         </section>
 
@@ -448,8 +450,10 @@
                 <div class="accordion-content" id="references-content">
                     <div class="references-content">
                 <p>
-
-                    Valtiovarainministeriö 2023a. Julkisen Talouden Meno- ja Rakennekartoitus. Talouspolitiikka, Valtiovarainministeriön julkaisuja. 
+                    Rissanen, M., J. Savolainen, and M. Collan. 2025. "Stochastic Simulation Model for Forecasting Index-Linked Public Expenditure." Public Budgeting & Finance 0: 1–21. https://doi.org/10.1111/pbaf.70007.
+                </p>
+                <p>
+                    Valtiovarainministeriö 2023. Julkisen Talouden Meno- ja Rakennekartoitus. Talouspolitiikka, Valtiovarainministeriön julkaisuja. 
                     Helsinki: Finnish Ministry of Finance.
                 </p>
                 <p>

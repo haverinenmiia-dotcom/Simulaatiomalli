@@ -23,16 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (expenditureCtx) {
         // Simulated data based on the table values
         // Helper function to calculate uncertainty bands (10/90 quantiles)
-        // Uncertainty increases over time: starts at ±1% and grows to ±5% by 2035
+        // Uncertainty increases over time: starts at ±0.4% (2025) and grows to ±2% (2035)
         function calculateUncertaintyBands(data) {
             const upper = [];
             const lower = [];
             const numPoints = data.length;
             
             data.forEach((value, index) => {
-                // Uncertainty grows linearly from 1% at start to 5% at end
+                // Uncertainty grows linearly from 0.4% at start to 2% at end
                 const progress = index / (numPoints - 1); // 0 to 1
-                const uncertaintyPercent = 0.01 + (progress * 0.04); // 1% to 5%
+                const uncertaintyPercent = 0.004 + (progress * 0.016); // 0.4% to 2%
                 
                 // 10/90 quantiles: approximately ±1.28 standard deviations
                 // Using multiplier to approximate 10th and 90th percentiles
@@ -73,7 +73,96 @@ document.addEventListener('DOMContentLoaded', function() {
             data: {
                 labels: years,
                 datasets: [
-                    // Main lines
+                    // Uncertainty areas (10/90 quantiles) - filled areas around each line
+                    {
+                        label: 'Skenaario 1: 90% kvantiili',
+                        data: scenario1Upper,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario1 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: '+1',
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    {
+                        label: 'Skenaario 1: 10% kvantiili',
+                        data: scenario1Lower,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario1 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    {
+                        label: 'Skenaario 2: 90% kvantiili',
+                        data: scenario2Upper,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario2 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: '+1',
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    {
+                        label: 'Skenaario 2: 10% kvantiili',
+                        data: scenario2Lower,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario2 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    {
+                        label: 'Skenaario 3: 90% kvantiili',
+                        data: scenario3Upper,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario3 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: '+1',
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    {
+                        label: 'Skenaario 3: 10% kvantiili',
+                        data: scenario3Lower,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario3 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    {
+                        label: 'Skenaario 4: 90% kvantiili',
+                        data: scenario4Upper,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario4 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: '+1',
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    {
+                        label: 'Skenaario 4: 10% kvantiili',
+                        data: scenario4Lower,
+                        borderColor: 'transparent',
+                        backgroundColor: colors.scenario4 + '25',
+                        borderWidth: 0,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 0,
+                        order: 0
+                    },
+                    // Main lines (drawn on top of uncertainty bands)
                     {
                         label: 'Skenaario 1: Perusvaihtoehto',
                         data: scenario1Data,
@@ -141,6 +230,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             font: {
                                 size: 12
                             },
+                            filter: function(item) {
+                                // Hide uncertainty area datasets from legend
+                                return !item.text.includes('kvantiili');
+                            }
                         }
                     },
                     tooltip: {
