@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indeksisidonnaisten menojen simulaatiomalli - Tutkimustulokset</title>
-    <link rel="stylesheet" href="styles.css?v=3">
+    <title>Indeksisidonnaisten menojen simulaatiomalli – Tutkimustulokset</title>
+    <link rel="stylesheet" href="styles.css?v=4">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -15,7 +15,6 @@
                     <li><a href="#johdanto">Johdanto</a></li>
                     <li><a href="#malli">Simulaatiomalli</a></li>
                     <li><a href="#tulokset">Tulokset</a></li>
-                    <li><a href="#skenaariot">Skenaariot</a></li>
                     <li><a href="#johtopaatokset">Johtopäätökset</a></li>
                 </ul>
             </div>
@@ -33,14 +32,10 @@
                 <div class="purpose-box">
                     <h2>Sivuston tarkoitus</h2>
                     <p>
-                        Tämä sivusto perustuu artikkeliin <em>"Stochastic Simulation Model for Forecasting Index-Linked Public Expenditure"</em> 
-                        (Rissanen, Savolainen & Collan, 2025) sekä sen pohjalta laadittavaan yleistajuiseen esitykseen valtion indeksisidonnaisista menoista. 
+                        Tämä sivusto perustuu artikkeliin <em>"Stochastic Simulation Model for Forecasting Index-Linked Public Expenditure"</em> (Rissanen, Savolainen &amp; Collan, 2025, <a href="http://doi.org/10.1111/pbaf.70007" target="_blank" rel="noopener" class="link">Public Budgeting &amp; Finance</a>) sekä sen pohjalta laadittuun suomenkieliseen julkaisuun <em>"Suomen valtion indeksisidonnaisten menojen tarkastelu simulaatiomallilla"</em> (Rissanen, Savolainen &amp; Collan, 2026, <em>Kansantaloudellinen aikakauskirja</em> 122(2): 172–197).
                     </p>
                     <p>
-                        Tämän sivuston sisältö on tarkoituksella yhteenvetävä ja tiivis. 
-                        Tarkoituksena on havainnollistaa indeksisidonnaisten menojen nykyistä muodostumislogiikkaa ymmärrettävällä tavalla ilman pyrkimystä suositella yksittäisiä politiikkatoimia. Kehitetyn simulaatiomallin tarkemmat menetelmäkuvaukset ja tekniset yksityiskohdat löytyvät <a href="http://doi.org/10.1111/pbaf.70007" target="_blank" class="link">alkuperäisestä artikkelista</a>. 
-                        Tämän sivuston lukija voi tutustua Suomen indeksisidottujen menojen 
-                        perusasioihin myös Valtiovarainministeriön Meno- ja rakennekartoituksessa (2023) aiheeseen liittyvässä osiossa. 
+                        Tämän sivuston sisältö on tarkoituksella yhteenvetävä ja tiivis. Tarkoituksena on havainnollistaa indeksisidonnaisten menojen nykyistä muodostumislogiikkaa ymmärrettävällä tavalla ilman pyrkimystä suositella yksittäisiä politiikkatoimia. Kehitetyn simulaatiomallin tarkemmat menetelmäkuvaukset ja tekniset yksityiskohdat löytyvät alkuperäisestä artikkelista. Tämän sivuston lukija voi tutustua Suomen indeksisidottujen menojen perusasioihin myös Valtiovarainministeriön Meno- ja rakennekartoituksessa (2023) aiheeseen liittyvässä osiossa.
                     </p>
                 </div>
             </div>
@@ -52,26 +47,22 @@
                 <h2 class="section-title">Johdanto</h2>
                 <div class="content-text">
                     <p>
-                        Hyvinvointivaltiossa julkiset menot, kuten eläkkeet ja sosiaalietuudet, sidotaan elinkustannusten 
-                        muutoksiin tyypillisesti kuluttajahintaindeksin avulla. Indeksoinnin taustalla on ajatus siitä, että automaattiset 
-                        korotukset hintojen kehitysten mukana turvaavat ostovoiman sekä yksilöille että julkisrahoitteisille organisaatioille.
-                        Käytännössä valtion menojen indeksointi tarkoittaa sitä, että vuosittain valtion budjetissa indekseihin sidotut menot, kuten
-                        etuudet, korottuvat indeksien kehityksen mukana, vaikka menoeriin (momentit) ei tehtäisi harkinnanvaraisia korotuksia.   
+                        Hyvinvointivaltiossa julkiset menot, kuten eläkkeet ja sosiaalietuudet, sidotaan elinkustannusten muutoksiin tyypillisesti kuluttajahintaindeksin avulla. Indeksoinnin taustalla on ajatus siitä, että automaattiset korotukset hintojen kehityksen mukana turvaavat ostovoiman sekä yksilöille että julkisrahoitteisille organisaatioille.
                     </p>
                     <p>
-                        Indeksisidonnaisten valtion menojen vaikutuksia tarkasteltaessa on tärkeää ymmärtää automaattisten 
-                        korotusten rooli erilaisissa talouden olosuhteissa. Vakaan inflaation oloissa menojen "automaattinen" kehitys on melko ennakoitavaa, 
-                        mutta viimeaikaiset talousshokit ovat osoittaneet, että indeksisidonnaiset menot voivat reagoida voimakkaasti 
-                        äkillisiin hintavaihteluihin. Menot kasvavat indeksien kautta silloinkin, 
-                        kun menojen kasvua olisi syytä hillitä.
+                        Käytännössä valtion menojen indeksointi tarkoittaa sitä, että vuosittain indekseihin sidotut menoerät (momentit) korottuvat indeksien kehityksen mukana, vaikka niihin ei tehtäisi harkinnanvaraisia korotuksia. Vakaan inflaation oloissa tämä "automaattinen" kehitys on melko ennakoitavaa, mutta viimeaikaiset talousshokit ovat osoittaneet, että indeksisidonnaiset menot voivat reagoida voimakkaasti äkillisiin hintavaihteluihin. Menot kasvavat indeksien kautta silloinkin, kun menojen kasvua olisi syytä hillitä.
                     </p>
                     <p>
-                        Suomen indeksisidonnaisten valtion menojen järjestelmä ei ole OECD-maihin verrattuna itsessään ainultaatuinen. 
-                        Useissa maissa sosiaalietuudet, vähintään eläkkeet, ovat sidottuja indekseihin, mutta Suomessa indeksointi kattaa huomattavan osan valtion menoista, 
-                        pitäen sisällään esim. hyvinvointialueiden rahoituksen, puolustusmenot ja valtionosuuden kunnille peruspalvelujen järjestämiseksi.
-                        Kattavan katsauksen euroalueen indeksointikäytänteistä ja maidenvälistä vertailua tarjoaa esimerkiksi 
-                        Whitehouse (2009).
+                        Valtiontalouden alijäämän kasvu on nostanut esiin kysymyksen siitä, millä keinoin menojen nousua voidaan hillitä. Yksi julkisessa keskustelussakin esillä ollut keino on tarkastella indeksisidonnaisuuden rakenteita ja mahdollisia muutoksia. Tämä työ tarkastelee indeksisidonnaisten julkisten menojen rakennetta ja vaikutuksia Suomen julkiseen talouteen hyödyntäen simulaatiomallinnusta ja stokastisia ennusteita.
                     </p>
+                    <p>
+                        Kehitetyllä mallilla pystytään havainnollistamaan, millaisia kumulatiivisia, pitkän aikavälin vaikutuksia menojen kehitykseen olisi, mikäli indeksisidonnaisuuksia muutettaisiin. Toisaalta se auttaa myös hahmottamaan nykyisten indeksointijäädytysten vaikutuksia ja arvioimaan saavutetaanko niillä tavoiteltuja muutoksia valtion menojen kasvun hillitsemiseksi.
+                    </p>
+
+                    <div class="eu-summary-box">
+                        <h3>Indeksisidonnaisuuksista euroalueella ja Suomessa</h3>
+                        <p>Suomen indeksisidonnaisten valtion menojen järjestelmä ei ole OECD-maihin verrattuna itsessään ainutlaatuinen. Useissa maissa sosiaalietuudet, vähintään eläkkeet, ovat sidottuja indekseihin, mutta Suomessa indeksointi kattaa huomattavan osan valtion menoista, pitäen sisällään esim. hyvinvointialueiden rahoituksen, puolustusmenot ja valtionosuuden kunnille peruspalvelujen järjestämiseksi. Kattavan katsauksen euroalueen indeksointikäytänteistä ja maidenvälistä vertailua tarjoaa esimerkiksi Whitehouse (2009), josta pääasiat on tiivistetty suomenkieliseen julkaisuumme (KAK).</p>
+                    </div>
 
                     <!-- Indeksien osuus taulukko -->
                     <div class="methodology-accordion">
@@ -105,9 +96,9 @@
                                         </tr>
                                         <tr>
                                             <td>Työeläkeindeksi (TyEL)</td>
-                                            <td class="number">12,00 %</td>
-                                            <td class="number">12,00 %</td>
-                                            <td class="number">12,00 %</td>
+                                            <td class="number">12,54 %</td>
+                                            <td class="number">12,18 %</td>
+                                            <td class="number">12,16 %</td>
                                         </tr>
                                         <tr>
                                             <td>Valtionosuusindeksi (VOS)</td>
@@ -134,7 +125,7 @@
                                             <td class="number">2,38 %</td>
                                         </tr>
                                         <tr>
-                                            <td>Teollisuuden tuottajahindeksi, alaindeksin C28 (Muiden koneiden ja laitteiden valmistus)</td>
+                                            <td>Teollisuuden tuottajahintaindeksi, alaindeksi C28</td>
                                             <td class="number">2,55 %</td>
                                             <td class="number">2,44 %</td>
                                             <td class="number">2,30 %</td>
@@ -158,13 +149,13 @@
                                             <td class="number">0,11 %</td>
                                         </tr>
                                         <tr>
-                                            <td>TyEL/KEL</td>
+                                            <td>TyEL/Kansaneläkeindeksi</td>
                                             <td class="number">0,03 %</td>
                                             <td class="number">0,02 %</td>
                                             <td class="number">0,02 %</td>
                                         </tr>
                                         <tr style="font-weight: 600; background-color: #f0f0f0;">
-                                            <td>Kaikki yhteensä (mrd. e)</td>
+                                            <td>Kaikki yhteensä (mrd. €)</td>
                                             <td class="number">59,76</td>
                                             <td class="number">62,24</td>
                                             <td class="number">63,11</td>
@@ -172,13 +163,14 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <p class="source-line">Lähde: valtion budjetista 2024–2026 johdetut laskelmat (VM 2023b, 2023c, 2024, 2025a).</p>
                         </div>
                     </div>
 
                     <!-- Indeksisidonnaiset menot taulukko -->
                     <div class="methodology-accordion">
                         <button class="accordion-button" onclick="toggleAccordion()">
-                            <h3>Taulukko 2. Indeksisidonnaiset valtion menot 2025</h3>
+                            <h3>Taulukko 2. Indeksisidonnaiset valtion menot 2025 (momenttitasolla)</h3>
                             <span class="accordion-icon" id="accordion-icon">▼</span>
                         </button>
                         <div class="accordion-content" id="accordion-content">
@@ -194,31 +186,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div style="margin-top: 2rem;"></div>
-
-                    <p>
-                        Valtiontalouden alijäämän kasvu on nostanut esiin kysymyksen siitä, millä keinoin menojen nousua voidaan 
-                        hillitä. Yksi konkreettinen julkisessa keskustelussakin esillä ollut keino on tarkastella indeksisidonnaisuuden rakenteita ja mahdollisia muutoksia.
-
-                    </p>
-                    <p>
-                        Tämä työ tarkastelee indeksisidonnaisten julkisten 
-                        menojen rakennetta ja vaikutuksia Suomen julkiseen 
-                        talouteen hyödyntäen simulaatiomallinnusta ja stokastisia ennusteita. Tarkoituksena on eristää 
-                        indeksoitujen valtion menojen dynamiikka ja analysoida, miten 
-                        automaattinen indeksointi vaikuttaa julkisten menojen kasvuun. Näin malli tarjoaa selkeän ja rajatun 
-                        näkymän siihen, miten nykyinen indeksointijärjestelmä ohjaa menokehitystä ja millaisia vaikutuksia 
-                        mahdollisilla indeksisääntöjen muutoksilla olisi pitkällä aikavälillä.
-                        Kehitetyllä mallilla pystytään havainnollistamaan, millaisia kumulatiivisia, pitkän aikavälin
-                        vaikutuksia menojen kehitykseen
-                        olisi, mikäli indeksisidonnaisuuksia muutettaisiin. Toisaalta se auttaa myös hahmottamaan nykyisten indeksointijäädytysten vaikutuksia ja arvioimaan
-                        saavutetaanko niillä tavoiteltuja muutoksia valtion menojen kasvun hillitsemiseksi.
-                        </p>
                     </div>
             </div>
         </section>
-
 
         <!-- Simulaatiomalli lyhyesti -->
         <section id="malli" class="model-section">
@@ -230,13 +200,9 @@
                         erilaisissa talouden tilanteissa. Se tuottaa stokastisiin menetelmiin perustuvia tulevia inflaatiouria 
                         ja laskee niiden pohjalta vastaavat valtion menot valitulle aikajaksolle. Malli toimii momenttitasolla 
                         ja käyttää lähtöarvoinaan valtion budjettilukuja halutulta vuodelta. 
-    . 
                     </p>
                     <p>
-                        Malli tarjoaa alustan erilaisten indeksisääntöjen, kuten väliaikaisten jäädytysten testaamiseen 
-                        ja niiden vaikutusten arviointiin. Sen avulla voidaan havainnollistaa, miten 
-                        indeksointi kiihdyttää tai hidastaa menojen kasvua erilaisissa talouden tilanteissa, erityisesti korkean 
-                        inflaation aikana. 
+                        Malli tarjoaa alustan erilaisten indeksisääntöjen, kuten väliaikaisten jäädytysten ja sääntöpohjaisten jarrujen, testaamiseen ja niiden vaikutusten arviointiin. Sen avulla voidaan havainnollistaa, miten indeksointi kiihdyttää tai hidastaa menojen kasvua erilaisissa talouden tilanteissa.
                     </p>
                     <p>
                         Keskeistä on epävarmuuden huomioiminen: malli ei perustu yhteen inflaatio-oletukseen, vaan tuottaa joukon 
@@ -306,7 +272,7 @@
                         Alla esitetään esimerkki mallin käytöstä. Simulaatiot on ajettu neljällä eri skenaariolla, 
                         jotka testaavat erilaisia indeksointivaihtoehtoja. Jokainen skenaario käyttää samaa lähtötilannetta 
                         (vuoden 2025 budjetti) ja samaa inflaatiomallinnusta, mikä mahdollistaa skenaarioiden vertailun. Mallilla ajetaan
-                        sarja simulaatioita kymmenen vuotta eteenpäin, joista voidaan laskea keskiarvot ja kvantiilit tuloksista. 
+                        sarja simulaatioita kymmenen vuotta eteenpäin, joista lasketaan odotusarvo ja kvantiilit (10 % ja 90 %). 
                     
                     </p>
                     <p>
@@ -325,43 +291,23 @@
                 </div>
 
                 <div class="table-container">
-                    <h3>Taulukko 3. Simulaation tulokset, valtion indeksisidonnaisten menojen kehitys 2025-2035</h3>
+                    <h3>Taulukko 3. Simulaation tulokset: valtion indeksisidonnaisten menojen kehitys 2025–2035 (odotusarvo; suluissa 10 % / 90 % desiilit)</h3>
                     <table class="results-table">
                         <thead>
-                            <tr>
-                                <th>Sken.</th>
-                                <th>Kuvaus</th>
-                                <th>Menot vuonna 2035<br>(mrd. €)</th>
-                                <th>Kumulatiivinen kertymä<br>(mrd. €)</th>
-                            </tr>
+                            <tr><th>Sken.</th><th>Kuvaus</th><th>Menot vuonna 2035<br>(mrd. €)</th><th>Kumulatiivinen kertymä<br>(mrd. €)</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>Lähtöarvot vuoden 2025 budjetti, mukana nykyiset indeksijäädytykset hallituskauden loppuun (2027 saakka)</td>
-                                <td class="number">73,78</td>
-                                <td class="number">740,86</td>
-                            </tr>
-                            <tr>
-                                <td>2.</td>
-                                <td>Lähtöarvot vuoden 2025 budjetti, mukana nykyiset indeksijäädytykset simulaatioajanjakson loppuun (2035 saakka)</td>
-                                <td class="number">72,71</td>
-                                <td class="number">736,12</td>
-                            </tr>
-                            <tr>
-                                <td>3.</td>
-                                <td>Lähtöarvot vuoden 2025 budjetti, indeksikorotusta pienennetään 1 prosenttiyksiköllä riippumatta inflaatiokehityksestä jos inflaatio >=2%. Indeksikorotus ei voi olla negatiivinen.</td>
-                                <td class="number">69,88</td>
-                                <td class="number">722,42</td>
-                            </tr>
-                            <tr>
-                                <td>4.</td>
-                                <td>Lähtöarvot vuoden 2025 budjetti, indeksikorotusta pienennetään 1 prosenttiyksiköllä riippumatta inflaatiokehityksestä. Indeksikorotus ei voi olla negatiivinen.</td>
-                                <td class="number">68,32</td>
-                                <td class="number">713,71</td>
-                            </tr>
+                            <tr><td>1.</td><td>Lähtöarvot budjetti 2025; nykyiset indeksijäädytykset/jarrut hallituskauden loppuun (2027 saakka). <em>Vertailukohta.</em></td><td class="number">73,78<span class="ci">72,37 / 75,24</span></td><td class="number">740,86<span class="ci">732,19 / 750,01</span></td></tr>
+                            <tr><td>2.</td><td>Kuten 1, mutta nykyiset jäädytykset/jarrut voimassa koko simulaatiojakson (2035 saakka).</td><td class="number">72,71<span class="ci">71,67 / 73,82</span></td><td class="number">736,14<span class="ci">729,26 / 743,45</span></td></tr>
+                            <tr><td>3.</td><td>Indeksikorotusta pienennetään 1 prosenttiyksiköllä, jos inflaatio ≥ 2 %. Korotus ei voi olla negatiivinen; koskee kaikkia indeksisidonnaisia menoja.</td><td class="number">69,88<span class="ci">68,77 / 71,05</span></td><td class="number">722,42<span class="ci">715,15 / 730,34</span></td></tr>
+                            <tr><td>4.</td><td>Indeksikorotusta pienennetään 1 prosenttiyksiköllä inflaatiosta riippumatta. Korotus ei voi olla negatiivinen; koskee kaikkia indeksisidonnaisia menoja.</td><td class="number">68,32<span class="ci">67,15 / 69,60</span></td><td class="number">713,71<span class="ci">705,89 / 722,39</span></td></tr>
                         </tbody>
                     </table>
+                    <p class="source-line">Lähde: Rissanen, Savolainen &amp; Collan (2026), taulukko 4 ja liite 4.</p>
+                </div>
+
+                <div class="content-text">
+                    <p class="table-note"><strong>Päivitys (2026-budjetti):</strong> Skenaarion 1 asetelma ajettiin myös vuoden 2026 talousarvioesityksen budjettiluvuilla. Tällöin indeksisidonnaiset menot olisivat <strong>74,48 mrd. €</strong> vuonna 2035 ja kumulatiivinen kertymä <strong>741,97 mrd. €</strong> – eli hyvin lähellä vuoden 2025 luvuilla saatua perusuraa.</p>
                 </div>
 
                 <!-- Menojen kehitys -->
@@ -371,7 +317,7 @@
                         <canvas id="expenditureChart"></canvas>
                     </div>
                     <p class="chart-note">
-                        Kuvassa esitetään indeksisidonnaisten valtion menojen kehitys neljässä eri skenaariossa (keskiarvo simulaatioista). 
+                        Kuvassa esitetään indeksisidonnaisten valtion menojen kehitys neljässä skenaariossa. Yhtenäinen viiva kuvaa odotusarvoa ja varjostettu alue 10–90 %:n simulaatiohajontaa. Mrd. €, nimellinen. Lähtötaso 2025: 62,24 mrd. €. 
                         
                     </p>
                 </div>
@@ -379,13 +325,12 @@
                 <!-- Päähavainnot -->
                 <div class="key-findings">
                     <h3>Päähavainnot</h3>
+                    <div class="stats-grid">
+                        <div><strong>62 → 68–74</strong><span>mrd. € menot 2025 → 2035 skenaariosta riippuen</span></div>
+                        <div><strong>10–19 %</strong><span>automaattinen kasvu kymmenessä vuodessa</span></div>
+                    </div>
                     <p>
-                        Simuloidulla ajanjaksolla 2025–2035, ceteris paribus, indeksisidonnaiset valtionmenot kasvavat 
-                        nimellisesti lähtötasosta, joka on noin 62 miljardia euroa vuonna 2025, tasolle 68–74 miljardia 
-                        euroa vuonna 2035 skenaariosta riippuen. Tämä vastaa noin 6–12 miljardin euron lisäystä eli 
-                        10–19 prosentin kasvua kymmenen vuoden aikana. Tulokset kuvaavat, kuinka voimakkaasti nykyinen 
-                        automaattiseen indeksointiin perustuva järjestelmä kasvattaa menoja pitkällä aikavälillä ja 
-                        miten erilaiset muutokset indeksointijärjestelmään voivat muuttaa tätä kehitystä. 
+                        Simuloidulla ajanjaksolla 2025–2035, ceteris paribus, indeksisidonnaiset valtion menot kasvavat nimellisesti lähtötasosta (noin 62 mrd. €) tasolle 68–74 mrd. € vuonna 2035 skenaariosta riippuen – noin 6–12 mrd. € lisäys eli 10–19 % kasvu. Nykyisten hallituskausittaisten jäädytysten ja jarrujen jatkaminen hillitsisi kasvua vain maltillisesti eikä muuttaisi kehityksen perusuraa. Sen sijaan kaikkia indeksisidonnaisia menoja läpileikkaava, pysyvä −1 %:n jarru tuottaisi selvästi näkyvämmän vaikutuksen, koska se ulottuu myös suurimpiin menoeriin, kuten työeläkkeisiin.
                     </p>
                 </div>
             </div>
@@ -451,22 +396,13 @@
                 </button>
                 <div class="accordion-content" id="references-content">
                     <div class="references-content">
-                <p>
-                    Rissanen, M., J. Savolainen, and M. Collan. 2025. "Stochastic Simulation Model for Forecasting Index-Linked Public Expenditure." Public Budgeting & Finance 0: 1–21. https://doi.org/10.1111/pbaf.70007.
-                </p>
-                <p>
-                    Valtiovarainministeriö 2023. Julkisen Talouden Meno- ja Rakennekartoitus. Talouspolitiikka, Valtiovarainministeriön julkaisuja. 
-                    Helsinki: Finnish Ministry of Finance.
-                </p>
-                <p>
-                    Valtiovarainministeriö. 2024. Talousarvioesitys 2025, 23. syyskuuta 2024. Helsinki: Valtion talousarvioesitykset.
-                </p>
-                <p>
-                    Valtiovarainministeriö. 2023b. Pyyntö indeksisidonnaisten menojen luettelosta (taulukkolaskentatiedosto).
-                </p>
-                <p>
-                    Whitehouse, E. (2009). Pensions, purchasing-power risk, inflation and indexation. OECD Social, Employment, and Migration Working Papers, (77), 1.
-                </p>
+                <p>Bańkowski, K., Checherita-Westphal, C., Jesionek, J. &amp; Muggenthaler, P. (2023). <em>The Effects of High Inflation on Public Finances in the Euro Area.</em> ECB Occasional Paper No. 332.</p>
+                <p>Eurostat (2025). <em>General Government Expenditure by Function (COFOG).</em> Database.</p>
+                <p>Rissanen, M., Savolainen, J. &amp; Collan, M. (2025). "Stochastic Simulation Model for Forecasting Index-Linked Public Expenditure." <em>Public Budgeting &amp; Finance.</em> https://doi.org/10.1111/pbaf.70007</p>
+                <p>Rissanen, M., Savolainen, J. &amp; Collan, M. (2026). "Suomen valtion indeksisidonnaisten menojen tarkastelu simulaatiomallilla." <em>Kansantaloudellinen aikakauskirja</em> 122(2): 172–197.</p>
+                <p>Valtiovarainministeriö (2023). <em>Julkisen talouden meno- ja rakennekartoitus.</em> Valtiovarainministeriön julkaisuja, Helsinki.</p>
+                <p>Valtiovarainministeriö (2024). <em>Talousarvioesitys 2025</em> (23.9.2024). Helsinki.</p>
+                <p>Whitehouse, E. (2009). <em>Pensions, Purchasing-Power Risk, Inflation and Indexation.</em> OECD Social, Employment and Migration Working Papers No. 77.</p>
                     </div>
                 </div>
             </div>
@@ -475,10 +411,10 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Indeksisidonnaisten menojen simulaatiomalli. Tutkimustulokset.</p>
+            <p>&copy; 2026 Indeksisidonnaisten menojen simulaatiomalli · Tutkimustulokset · LUT-yliopiston kauppakorkeakoulu</p>
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>

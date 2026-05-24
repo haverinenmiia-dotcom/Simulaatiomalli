@@ -267,7 +267,7 @@ section {
 }
 
 .methodology-accordion .accordion-content.active {
-    max-height: 2000px;
+    max-height: 6000px;
     padding: 1.5rem;
 }
 
@@ -378,6 +378,35 @@ section {
     color: var(--text-medium);
 }
 
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.stats-grid div {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.stats-grid strong {
+    display: block;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+}
+
+.stats-grid span {
+    color: var(--text-medium);
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
 /* Scenarios Section */
 .scenarios-section {
     background-color: var(--bg-light);
@@ -451,6 +480,21 @@ section {
     font-weight: 600;
     color: var(--text-dark);
     font-family: 'Courier New', monospace;
+}
+
+.results-table .ci {
+    display: block;
+    color: var(--text-light);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
+
+.source-line {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 1rem;
 }
 .results-table thead .number {
     color: var(--white);
@@ -531,6 +575,30 @@ section {
 .important-note strong {
     color: #92400e;
     font-weight: 600;
+}
+
+.eu-summary-box {
+    background: linear-gradient(135deg, #eef7f6 0%, #f8fbff 100%);
+    border: 1px solid #c7e0dd;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+
+.eu-summary-box h3 {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.eu-summary-box p {
+    color: var(--text-medium);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin: 0;
 }
 
 /* Summary Table Section (Accordion) */
