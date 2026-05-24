@@ -5,11 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
         primary: '#1e3a8a',
         secondary: '#0f766e',
         accent: '#dc2626',
-        scenario1: '#3b82f6',
-        scenario2: '#8b5cf6',
-        scenario3: '#10b981',
-        scenario4: '#f59e0b',
-        indices: ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#06b6d4']
+        scenario1: '#2f3a44',
+        scenario2: '#3a6ea5',
+        scenario3: '#c8821f',
+        scenario4: '#1f7a4d'
     };
 
     // Years for charts
@@ -45,29 +44,21 @@ document.addEventListener('DOMContentLoaded', function() {
             return { upper, lower };
         }
         
-        // Scenario 1: 62 -> 73.78 (linear approximation)
-        const scenario1Data = [62, 63.5, 65.2, 66.9, 68.5, 69.8, 70.9, 71.8, 72.5, 73.1, 73.78];
-        const scenario1Bands = calculateUncertaintyBands(scenario1Data);
-        const scenario1Upper = scenario1Bands.upper;
-        const scenario1Lower = scenario1Bands.lower;
-        
-        // Scenario 2: 62 -> 72.71
-        const scenario2Data = [62, 63.3, 64.7, 66.1, 67.4, 68.6, 69.7, 70.6, 71.4, 72.1, 72.71];
-        const scenario2Bands = calculateUncertaintyBands(scenario2Data);
-        const scenario2Upper = scenario2Bands.upper;
-        const scenario2Lower = scenario2Bands.lower;
-        
-        // Scenario 3: 62 -> 69.88
-        const scenario3Data = [62, 63.0, 64.1, 65.2, 66.3, 67.3, 68.2, 68.9, 69.5, 69.7, 69.88];
-        const scenario3Bands = calculateUncertaintyBands(scenario3Data);
-        const scenario3Upper = scenario3Bands.upper;
-        const scenario3Lower = scenario3Bands.lower;
-        
-        // Scenario 4: 62 -> 68.32
-        const scenario4Data = [62, 62.8, 63.7, 64.6, 65.5, 66.3, 67.0, 67.6, 68.0, 68.2, 68.32];
-        const scenario4Bands = calculateUncertaintyBands(scenario4Data);
-        const scenario4Upper = scenario4Bands.upper;
-        const scenario4Lower = scenario4Bands.lower;
+        const scenario1Data = [62.24, 62.60, 63.78, 64.60, 65.74, 66.26, 68.05, 69.59, 71.36, 72.85, 73.78];
+        const scenario1Lower = [62.24, 62.34, 63.38, 64.03, 65.03, 65.42, 67.09, 68.53, 70.19, 71.57, 72.37];
+        const scenario1Upper = [62.24, 62.90, 64.20, 65.21, 66.48, 67.14, 69.07, 70.73, 72.59, 74.20, 75.24];
+
+        const scenario2Data = [62.24, 62.60, 63.78, 64.49, 65.49, 65.88, 67.53, 68.93, 70.57, 71.91, 72.71];
+        const scenario2Lower = [62.24, 62.34, 63.38, 64.00, 64.91, 65.21, 66.78, 68.10, 69.67, 70.95, 71.67];
+        const scenario2Upper = [62.24, 62.90, 64.20, 65.03, 66.11, 66.58, 68.33, 69.80, 71.51, 72.93, 73.82];
+
+        const scenario3Data = [62.24, 62.63, 63.46, 64.18, 64.82, 64.82, 66.06, 67.03, 68.21, 69.09, 69.88];
+        const scenario3Lower = [62.24, 62.35, 63.06, 63.66, 64.21, 64.11, 65.27, 66.14, 67.26, 68.07, 68.77];
+        const scenario3Upper = [62.24, 62.96, 63.93, 64.77, 65.50, 65.59, 66.91, 67.99, 69.22, 70.19, 71.05];
+
+        const scenario4Data = [62.24, 62.20, 62.97, 63.49, 64.06, 64.00, 65.17, 66.07, 67.18, 68.00, 68.32];
+        const scenario4Lower = [62.24, 61.97, 62.49, 62.91, 63.39, 63.22, 64.31, 65.13, 66.17, 66.90, 67.15];
+        const scenario4Upper = [62.24, 62.57, 63.49, 64.14, 64.81, 64.85, 66.09, 67.12, 68.29, 69.18, 69.60];
 
         new Chart(expenditureCtx, {
             type: 'line',
@@ -173,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     // Main lines (drawn on top of uncertainty bands)
                     {
-                        label: 'Skenaario 1: Perusvaihtoehto',
+                        label: 'Skenaario 1: Nyk. säännöt 2027 asti',
                         data: scenario1Data,
                         borderColor: colors.scenario1,
                         backgroundColor: colors.scenario1,
@@ -185,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         order: 1
                     },
                     {
-                        label: 'Skenaario 2: Jäädytysten jatkaminen',
+                        label: 'Skenaario 2: Nyk. säännöt 2035 asti',
                         data: scenario2Data,
                         borderColor: colors.scenario2,
                         backgroundColor: colors.scenario2,
@@ -197,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         order: 1
                     },
                     {
-                        label: 'Skenaario 3: Ehdollinen indeksileikkaus',
+                        label: 'Skenaario 3: Jarru -1 % (inflaatio ≥ 2 %)',
                         data: scenario3Data,
                         borderColor: colors.scenario3,
                         backgroundColor: colors.scenario3,
@@ -209,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         order: 1
                     },
                     {
-                        label: 'Skenaario 4: Kokonaisvaltainen indeksileikkaus',
+                        label: 'Skenaario 4: Jarru -1 % (rajoittamaton)',
                         data: scenario4Data,
                         borderColor: colors.scenario4,
                         backgroundColor: colors.scenario4,
@@ -270,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     y: {
                         beginAtZero: false,
                         min: 60,
-                        max: 75,
+                        max: 76,
                         title: {
                             display: true,
                             text: 'Menot (mrd. €)',
@@ -354,51 +345,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Embedded CSV data (converted from "data uusi.csv")
 const embeddedData = [
-    ['Momentti', 'Indeksiryhmä', 'Kuvaus', 'Lähtöarvo 2025'],
-    ['28.89.31', 'Hyvinvointialueiden hintaindeksi', 'Hyvinvointialueiden ja HUS-yhtymän sosiaali- ja terveydenhuollon sekä pelastustoimen rahoitus', '26 235 003 000'],
-    ['28.50.15', 'Työeläkeindeksi (TyEL)', 'Eläkkeet', '5 622 854 000'],
-    ['33.40.60', 'Kansaneläkeindeksi (KEL)', 'Valtion osuus kansaneläkelaisesta ja eräistä muista laeista johtuvista menoista', '4 065 100 000'],
-    ['28.90.30', 'Valtionosuusindeksi (VOS)', 'Valtionosuus kunnille peruspalvelujen järjestämiseen', '3 366 600 000'],
-    ['27.10.01', 'Kuluttajahintaindeksi (KHI)', 'Puolustusvoimien toimintamenot', '2 519 809 000'],
-    ['29.40.50', 'Yliopistoindeksi', 'Valtionrahoitus yliopistojen toimintaan', '2 269 102 000'],
-    ['33.30.60', 'Kansaneläkeindeksi (KEL)', 'Valtion osuus sairausvakuutuslaista johtuvista menoista', '1 866 300 000'],
-    ['33.10.50', 'Kuluttajahintaindeksi (KHI)', 'Perhe-etuudet', '1 626 400 000'],
-    ['27.10.19', 'Toteutuneen kustannustason nousun mukaan', 'Monitoimihävittäjien hankinta', '1 852 774 000'],
-    ['27.10.18', 'Teollisuuden tuottahindeksi, alaindeksin C28 (Muiden koneiden ja laitteiden valmistus)', 'Puolustusmateriaalihankinnat', '1 517 054 000'],
-    ['33.20.52', 'Kansaneläkeindeksi (KEL)', 'Valtionosuus työttömyysetuuksien perusturvasta', '1 312 500 000'],
-    ['33.10.54', 'Kansaneläkeindeksi (KEL)', 'Asumistuki', '1 406 300 000'],
-    ['33.10.57', 'Kansaneläkeindeksi (KEL)', 'Perustoimeentulotuki', '970 200 000'],
-    ['29.40.55', 'Yliopistoindeksi', 'Valtionrahoitus ammattikorkeakoulujen toimintaan', '1 020 666 000'],
-    ['29.20.30', 'Ammatillisen koulutuksen indeksi', 'Valtionosuus ja -avustus ammatilliseen koulutukseen', '1 020 058 000'],
-    ['29.70.55', 'Kansaneläkeindeksi (KEL)', 'Opintoraha ja asumislisä', '699 300 000'],
-    ['33.40.51', 'Työeläkeindeksi (TyEL)*', 'Valtion osuus maatalousyrittäjän eläkelaisesta johtuvista menoista', '850 000 000'],
-    ['29.10.30', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus esi- ja perusopetuksen ja varhaiskasvatuksen käyttökustannuksiin', '625 697 000'],
-    ['33.20.50', 'Kansaneläkeindeksi (KEL)', 'Valtionosuus työttömyysetuuksien ansioturvasta ja vuorottelukorvauksesta', '539 800 000'],
-    ['31.20.60', 'YLE-indeksi', 'Siirto valtion televisio- ja radiorahastoon', '609 681 000'],
-    ['33.40.52', 'Työeläkeindeksi (TyEL)*', 'Valtion osuus yrittäjän eläkelaisesta johtuvista menoista', '521 800 000'],
-    ['28.50.63', 'Työeläkeindeksi (TyEL)', 'Muiden eläkelaitosten vastattavaksi kuuluvat eläkemenot', '375 086 000'],
-    ['29.20.35', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus lukiokoulutuksen käyttökustannuksiin', '333 411 000'],
-    ['29.10.31', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus vapaan sivistystyön oppilaitosten käyttökustannuksiin', '185 445 000'],
-    ['29.80.31', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus esittävän taiteen ja museoiden käyttökustannuksiin', '147 118 000'],
-    ['29.80.34', 'Valtionosuusindeksi (VOS)', 'Valtionosuus ja -avustus taiteen perusopetuksen käyttökustannuksiin', '99 609 000'],
-    ['29.01.52', 'Kuluttajahintaindeksi (KHI)', 'Valtion rahoitus evankelis-luterilaisen kirkon yhteiskunnallisiin tehtäviin', '105 030 000'],
-    ['29.80.56', 'ATI 2/3 ja KHI 1/3 painolla', 'Valtionrahoitus kansallisten taidelaitosten toimintaan', '66 764 000'],
-    ['33.40.50', 'Työeläkeindeksi (TyEL)', 'Valtion osuus merimieseläkekassan menoista', '68 000 000'],
-    ['27.30.20', 'Kuluttajahintaindeksi (KHI)', 'Sotilaallisen kriisinhallinnan kalusto- ja hallintomenot', '64 920 000'],
-    ['29.90.52 (29.90.30)', 'Valtionosuusindeksi (VOS)', 'Valtionosuudet kunnille ja liikunnan koulutuskeskuksille', '36 631 000'],
-    ['33.50.52', 'Työeläkeindeksi (TyEL)*', 'Sotilasvammakorvaukset', '42 000 000'],
-    ['33.40.53', 'Työeläkeindeksi (TyEL)', 'Valtion korvaus lapsen hoidon ja opiskelun ajalta kertyvästä eläkeestä', '27 600 000'],
-    ['33.10.53', 'Kansaneläkeindeksi (KEL)', 'Sotilasavustus', '23 000 000'],
-    ['29.80.16', 'Työeläkeindeksi (TyEL)', 'Ylimääräiset taiteilija- ja sanomalehtimieseläkkeet', '22 932 000'],
-    ['28.50.95', 'Työeläkeindeksi (TyEL)', 'Muiden eläkelaitosten valtion puolesta maksamien eläkemenojen ja valtiolle maksamien ennakoiden korkomenot', '34 961 000'],
-    ['26.40.63', 'Kansaneläkeindeksi (KEL)', 'Vastaanottotoiminnan asiakkaille maksettavat tuet', '45 890 000'],
-    ['33.40.54', 'Työeläkeindeksi (TyEL)', 'Valtion osuus maatalousyrittäjien tapaturmavakuutuksen kustannuksista', '14 000 000'],
-    ['30.10.42', 'TyEL/KEL', 'Luopumistuet ja -eläkkeet', '13 200 000'],
-    ['29.80.30', 'Valtionosuusindeksi (VOS)', 'Valtionavustukset yleisten kirjastojen toimintaan', '9 228 000'],
-    ['29.01.51', 'Kuluttajahintaindeksi (KHI)', 'Avustukset kirkolliseen ja uskonnolliseen toimintaan', '3 152 000'],
-    ['28.50.16', 'Työeläkeindeksi (TyEL)', 'Ylimääräiset eläkkeet ja muut eläkemenot', '2 797 000'],
-    ['33.50.50', 'Kansaneläkeindeksi (KEL)', 'Rintamalisät', '3 500 000'],
-    ['33.20.55', 'Kansaneläkeindeksi (KEL)', 'Valtionosuudet Työllisyysrahastolle', '1 595 000']
+    ['Momentti', 'Momentin nimi', 'Indeksiryhmä', 'Määrä (€)'],
+    ['28.89.31', 'Hyvinvointialueiden ja HUS-yhtymän sosiaali- ja terveydenhuollon sekä pelastustoimen rahoitus', 'Hyvinvointialueiden hintaindeksi', '26 235 003 000'],
+    ['28.50.15', 'Eläkkeet', 'Työeläkeindeksi (TyEL)', '5 622 854 000'],
+    ['33.40.60', 'Valtion osuus kansaneläkelaista ja eräistä muista laeista johtuvista menoista', 'Kansaneläkeindeksi (KEL)', '4 065 100 000'],
+    ['28.90.30', 'Valtionosuus kunnille peruspalvelujen järjestämiseen', 'Valtionosuusindeksi (VOS)', '3 366 600 000'],
+    ['27.10.01', 'Puolustusvoimien toimintamenot', 'Kuluttajahintaindeksi (KHI)', '2 519 809 000'],
+    ['29.40.50', 'Valtionrahoitus yliopistojen toimintaan', 'Yliopistoindeksi', '2 269 102 000'],
+    ['33.30.60', 'Valtion osuus sairausvakuutuslaista johtuvista menoista', 'Kansaneläkeindeksi (KEL)', '1 866 300 000'],
+    ['27.10.19', 'Monitoimihävittäjien hankinta', 'Toteutuneen kustannustason nousun mukaan', '1 852 774 000'],
+    ['33.10.50', 'Perhe-etuudet', 'Kuluttajahintaindeksi (KHI)', '1 626 400 000'],
+    ['27.10.18', 'Puolustusmateriaalihankinnat', 'Teollisuuden tuottajahintaindeksi, alaindeksi C28', '1 517 054 000'],
+    ['33.10.54', 'Asumistuki', 'Kansaneläkeindeksi (KEL)', '1 406 300 000'],
+    ['33.20.52', 'Valtionosuus työttömyysetuuksien perusturvasta', 'Kansaneläkeindeksi (KEL)', '1 312 500 000'],
+    ['29.40.55', 'Valtionrahoitus ammattikorkeakoulujen toimintaan', 'Yliopistoindeksi', '1 020 666 000'],
+    ['29.20.30', 'Valtionosuus ja -avustus ammatilliseen koulutukseen', 'Ammatillisen koulutuksen indeksi', '1 020 058 000'],
+    ['33.10.57', 'Perustoimeentulotuki', 'Kansaneläkeindeksi (KEL)', '970 200 000'],
+    ['33.40.51', 'Valtion osuus maatalousyrittäjän eläkelaista johtuvista menoista', 'Työeläkeindeksi (TyEL)', '850 000 000'],
+    ['29.70.55', 'Opintoraha ja asumislisä', 'Kansaneläkeindeksi (KEL)', '699 300 000'],
+    ['29.10.30', 'Valtionosuus ja -avustus esi- ja perusopetuksen ja varhaiskasvatuksen käyttökustannuksiin', 'Valtionosuusindeksi (VOS)', '625 697 000'],
+    ['31.20.60', 'Siirto valtion televisio- ja radiorahastoon', 'YLE-indeksi', '609 681 000'],
+    ['33.20.50', 'Valtionosuus työttömyysetuuksien ansioturvasta ja vuorottelukorvauksesta', 'Kansaneläkeindeksi (KEL)', '539 800 000'],
+    ['33.40.52', 'Valtion osuus yrittäjän eläkelaista johtuvista menoista', 'Työeläkeindeksi (TyEL)', '521 800 000'],
+    ['28.50.63', 'Muiden eläkelaitosten vastattavaksi kuuluvat eläkemenot', 'Työeläkeindeksi (TyEL)', '375 086 000'],
+    ['29.20.35', 'Valtionosuus ja -avustus lukiokoulutuksen käyttökustannuksiin', 'Valtionosuusindeksi (VOS)', '333 411 000'],
+    ['29.10.31', 'Valtionosuus ja -avustus vapaan sivistystyön oppilaitosten käyttökustannuksiin', 'Valtionosuusindeksi (VOS)', '185 445 000'],
+    ['29.80.31', 'Valtionosuus ja -avustus esittävän taiteen ja museoiden käyttökustannuksiin', 'Valtionosuusindeksi (VOS)', '147 118 000'],
+    ['29.01.52', 'Valtion rahoitus evankelis-luterilaisen kirkon yhteiskunnallisiin tehtäviin', 'Kuluttajahintaindeksi (KHI)', '105 030 000'],
+    ['29.80.34', 'Valtionosuus ja -avustus taiteen perusopetuksen käyttökustannuksiin', 'Valtionosuusindeksi (VOS)', '99 609 000'],
+    ['33.40.50', 'Valtion osuus merimieseläkekassan menoista', 'Työeläkeindeksi (TyEL)', '68 000 000'],
+    ['29.80.56', 'Valtionrahoitus kansallisten taidelaitosten toimintaan', 'Ansiotasoindeksi 2/3 ja KHI 1/3', '66 764 000'],
+    ['27.30.20', 'Sotilaallisen kriisinhallinnan kalusto- ja hallintomenot', 'Kuluttajahintaindeksi (KHI)', '64 920 000'],
+    ['26.40.63', 'Vastaanottotoiminnan asiakkaille maksettavat tuet', 'Kansaneläkeindeksi (KEL)', '45 890 000'],
+    ['33.50.52', 'Sotilasvammakorvaukset', 'Työeläkeindeksi (TyEL)', '42 000 000'],
+    ['29.90.52', 'Valtionosuudet kunnille ja liikunnan koulutuskeskuksille', 'Valtionosuusindeksi (VOS)', '36 631 000'],
+    ['28.50.95', 'Muiden eläkelaitosten valtion puolesta maksamien eläkemenojen ym. korkomenot', 'Työeläkeindeksi (TyEL)', '34 961 000'],
+    ['33.40.53', 'Valtion korvaus lapsen hoidon ja opiskelun ajalta kertyvästä eläkkeestä', 'Työeläkeindeksi (TyEL)', '27 600 000'],
+    ['33.10.53', 'Sotilasavustus', 'Kansaneläkeindeksi (KEL)', '23 000 000'],
+    ['29.80.16', 'Ylimääräiset taiteilija- ja sanomalehtimieseläkkeet', 'Työeläkeindeksi (TyEL)', '22 932 000'],
+    ['33.40.54', 'Valtion osuus maatalousyrittäjien tapaturmavakuutuksen kustannuksista', 'Työeläkeindeksi (TyEL)', '14 000 000'],
+    ['30.10.42', 'Luopumistuet ja -eläkkeet', 'TyEL/KEL', '13 200 000'],
+    ['29.80.30', 'Valtionavustukset yleisten kirjastojen toimintaan', 'Valtionosuusindeksi (VOS)', '9 228 000'],
+    ['33.50.50', 'Rintamalisät', 'Kansaneläkeindeksi (KEL)', '3 500 000'],
+    ['29.01.51', 'Avustukset kirkolliseen ja uskonnolliseen toimintaan', 'Kuluttajahintaindeksi (KHI)', '3 152 000'],
+    ['28.50.16', 'Ylimääräiset eläkkeet ja muut eläkemenot', 'Työeläkeindeksi (TyEL)', '2 797 000'],
+    ['33.20.55', 'Valtionosuudet Työllisyysrahastolle', 'Kansaneläkeindeksi (KEL)', '1 595 000']
 ];
 
 // Function to display embedded data as static HTML table
